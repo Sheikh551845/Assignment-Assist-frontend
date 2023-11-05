@@ -18,7 +18,7 @@ export default function Navbar() {
                               </div>
      <div>
      <div className="hidden lg:block">
-      <ul className="mt-5 flex gap-5 mr-5 ">
+      <ul className="mt-5 flex gap-6 mr-5 ">
   
     
         
@@ -29,16 +29,58 @@ export default function Navbar() {
               >
                 <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
      
-      Home
+    Home
   </li>
               </NavLink>
   
   
         
-        
+              <NavLink
+                to="/AllAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      All Assig.
+  </li>
+              </NavLink>
+              <NavLink
+                to="/MyAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      My Assig.
+  </li>
+              </NavLink>
+  
+  
+              <NavLink
+                to="/CreateAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      Create Assig.
+  </li>
+              </NavLink>
+  
 
   
-             
+              <NavLink
+                to="/SubmittedAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      Submitted Assig.
+  </li>
+              </NavLink>
+  
   
       
     
@@ -72,22 +114,66 @@ export default function Navbar() {
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
         <div className="absolute right-20">
-        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-28 ">
+        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-32 flex flex-col gap-3">
         <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? " underline" : ""
-                }
+                  isPending ? "pending" : isActive ? "underline" : ""}
               >
-                <li className=" mt-2 cursor-pointer text-sm text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
      
-      Home
+    Home
   </li>
               </NavLink>
-        
-        
   
-         
+  
+        
+              <NavLink
+                to="/AllAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      All Assig.
+  </li>
+              </NavLink>
+              <NavLink
+                to="/MyAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      My Assig.
+  </li>
+              </NavLink>
+  
+  
+              <NavLink
+                to="/CreateAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      Create Assig.
+  </li>
+              </NavLink>
+  
+
+  
+              <NavLink
+                to="/SubmittedAssignment"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "underline" : ""}
+              >
+                <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
+     
+      Submitted Assig.
+  </li>
+              </NavLink>
+  
   
       
     
@@ -99,8 +185,8 @@ export default function Navbar() {
                   isPending ? "pending" : isActive ? " underline" : ""
                 }
               >
-               <li className=" mt-2 cursor-pointer  text-sm hover:text-indigo-700 text-gray-800 tracking-normal transition duration-150 ease-in-out">
-     
+               <li className="cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 text-gray-800 tracking-normal transition duration-150 ease-in-out">
+      
       Registration
   </li>
               </NavLink>
