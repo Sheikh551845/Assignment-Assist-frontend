@@ -68,7 +68,11 @@ const update=(photo,name)=>
   return updateProfile(auth.currentUser,{photoURL: photo, displayName: name})
 }
 
-  
+useEffect(()=>{
+  fetch("http://localhost:8888/AllAssignment")
+  .then ((res)=> res.json())
+  .then((data)=>setData(data))
+  } ,[])
 
 
    
