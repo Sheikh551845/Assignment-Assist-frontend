@@ -17,14 +17,19 @@ export default function Layout() {
         theme ==="dark"? 
         <div className="bg-black">
         <Navbar></Navbar>
+        <div className="min-h-screen"> 
         <Outlet></Outlet>
+        </div>
+       
         <Footer></Footer>
         <ToastContainer></ToastContainer>
       </div>
       :
       <div className="">
         <Navbar></Navbar>
+        <div className="min-h-screen"> 
         <Outlet></Outlet>
+        </div>
         <Footer></Footer>
         <ToastContainer></ToastContainer>
       </div>
