@@ -28,15 +28,7 @@ export default function Navbar() {
                   isPending ? "pending" : isActive ? "underline" : ""}
               >
                 <li className=" text-gray-800 cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 tracking-normal transition duration-150 ease-in-out">
-      <span className="mr-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <rect x={4} y={4} width={6} height={6} rx={1} />
-              <rect x={14} y={4} width={6} height={6} rx={1} />
-              <rect x={4} y={14} width={6} height={6} rx={1} />
-              <rect x={14} y={14} width={6} height={6} rx={1} />
-          </svg>
-      </span>
+     
       Home
   </li>
               </NavLink>
@@ -59,9 +51,7 @@ export default function Navbar() {
                 }
               >
                <li className="cursor-pointer h-full flex items-center text-sm hover:text-indigo-700 text-gray-800 tracking-normal transition duration-150 ease-in-out">
-      <span className="mr-2">
-          <img src="https://i.ibb.co/3MJwzX0/pngegg-1.png" alt="" className="icon icon-tabler icon-tabler-code" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      </span>
+      
       Registration
   </li>
               </NavLink>
@@ -124,10 +114,10 @@ export default function Navbar() {
      
       {user && Object.keys(user).length > 0?    
       <div className="flex justify-center items-center gap-2 ">
-      <p className="text-black fond-bold text-xs lg:text-xl">{user.displayName}</p>
+     
       
-      <div className="avatar">
-        <div className="w-6 md:w-12 rounded-full ring ring-offset-base-100 ring-offset-2">
+      <div className="avatar  group relative  ">
+        <div className="w-6 md:w-12 rounded-full ring ring-offset-base-100 ring-offset-2 hover: cursor-pointer">
   
           {
             user?.photoURL !==null ? <img src={user.photoURL} /> : <img src="https://i.ibb.co/3MJwzX0/pngegg-1.png"/>
@@ -136,6 +126,7 @@ export default function Navbar() {
         
          
         </div>
+        <p className="hidden group-hover:block absolute bg-gray-800 text-white p-2 rounded w-fit top-10 ">{user.displayName}</p>
         </div>
       
         <button className="md:btn text-black p-1 md:w-22 md:h-6    md:p-3 bg-white rounded-lg text-xs lg:text-base"
