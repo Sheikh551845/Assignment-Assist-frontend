@@ -63,9 +63,9 @@ const logout=()=>
     });
 }, [])
 
-const update=(name)=>
+const update=(photo,name)=>
 {
-  return updateProfile(auth.currentUser,{displayName: name})
+  return updateProfile(auth.currentUser,{photoURL: photo, displayName: name})
 }
 
   
@@ -73,19 +73,6 @@ const update=(name)=>
 
    
    
-    // useEffect(()=>{
-    // fetch("https://zt-ech-backend-i7c5jj7n8-sheikh-mohammads-projects.vercel.app/AllProducts")
-    // .then ((res)=> res.json())
-    // .then((data)=>setData(data))
-    // } ,[])
-
-
-    // useEffect(()=>{
-    //   fetch("https://zt-ech-backend-i7c5jj7n8-sheikh-mohammads-projects.vercel.app/MyCart")
-    //   .then ((res)=> res.json())
-    //   .then((data)=>{setCartData(data)
-    //   })
-    //   } ,[])
 
   const authInformation ={
     data,

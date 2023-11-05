@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 import { AuthContext } from '../Components/AuthProvider'
+import Footer from './Footer';
 
 export default function Layout() {
     const{theme, setTheme}=useContext(AuthContext);
@@ -17,14 +18,14 @@ export default function Layout() {
         <div className="bg-black">
         <Navbar></Navbar>
         <Outlet></Outlet>
-        
+        <Footer></Footer>
         <ToastContainer></ToastContainer>
       </div>
       :
       <div className="">
         <Navbar></Navbar>
         <Outlet></Outlet>
-        
+        <Footer></Footer>
         <ToastContainer></ToastContainer>
       </div>
   

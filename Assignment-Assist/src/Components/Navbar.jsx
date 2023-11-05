@@ -12,9 +12,9 @@ export default function Navbar() {
   {
           theme ==="light"?  
           <div className=" bg-base-100 flex justify-between items-center mt-2 justify-items-center shadow-xl p-3  "> 
-      <div className="mr-10 flex items-center">
-                              <img src="https://i.ibb.co/RbfSDbt/blockchain.png" className=" h-10 w-10 md:h-16 md:w-20 rounded-lg" alt="" />
-                                  <h3 className=" text-gray-800 font-bold tracking-normal leading-tight ml-3 text-lg md:text-2xl">Z Tech</h3>
+      <div className="mr-10 flex flex-col items-center">
+                              <img src="https://i.ibb.co/fvRQ7k7/Pngtree-vector-assignment-icon-4274708.png" className=" h-10 w-10 md:h-16 md:w-20 rounded-lg" alt="" />
+                                  <h3 className=" text-gray-800 font-bold tracking-normal leading-tight ml-3 text-lg ">Assignment Assist</h3>
                               </div>
      <div>
      <div className="hidden lg:block">

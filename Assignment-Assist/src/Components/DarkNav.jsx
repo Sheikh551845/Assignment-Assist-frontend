@@ -6,9 +6,9 @@ export default function DarkNav() {
     const {user,logout,setTheme,theme}=useContext(AuthContext)
   return (
     <div className=" bg-black flex justify-between items-center mt-2 justify-items-center shadow-xl p-3  "> 
-    <div className="mr-10 flex items-center">
-                            <img src="https://i.ibb.co/RbfSDbt/blockchain.png" className=" h-8 w-8 md:h-16 md:w-20 rounded-lg bg-white" alt="" />
-                                <h3 className=" text-white font-bold tracking-normal leading-tight ml-3 text-normal md:text-2xl">Z Tech</h3>
+    <div className="mr-10 flex flex-col items-center">
+                            <img src="https://i.ibb.co/fvRQ7k7/Pngtree-vector-assignment-icon-4274708.png" className=" h-8 w-8 md:h-16 md:w-20 rounded-full bg-white" alt="" />
+                                <h3 className=" text-white font-bold tracking-normal leading-tight ml-3 text-normal ">Assignment Assist</h3>
                             </div>
    <div>
    <div className="hidden lg:block">
@@ -107,19 +107,20 @@ export default function DarkNav() {
    
     {user && Object.keys(user).length > 0?    
     <div className="flex justify-center items-center gap-2 ">
-    <p className="text-white fond-bold text-xs lg:text-xl">{user.displayName}</p>
-    
-    <div className="avatar">
-      <div className="w-6 md:w-12 rounded-full ring ring-offset-base-100 ring-offset-2">
 
-        {
-          user?.photoURL !==null ? <img src={user.photoURL} /> : <img src="https://i.ibb.co/3MJwzX0/pngegg-1.png"/>
-        }
+
+<div className="avatar  group relative  ">
+        <div className="w-6 md:w-12 rounded-full ring ring-offset-base-100 ring-offset-2 hover: cursor-pointer">
+  
+          {
+            user?.photoURL !==null ? <img src={user.photoURL} className="rounded-full bg-white" /> : <img src="https://i.ibb.co/3MJwzX0/pngegg-1.png"/>
+          }
+           
+        
          
-      
-       
-      </div>
-      </div>
+        </div>
+        <p className="hidden group-hover:block absolute bg-gray-800 text-white p-2 rounded w-fit top-10 ">{user.displayName}</p>
+        </div>
     
       <button className="md:btn text-black p-1 md:w-22 md:h-6    md:p-3 bg-white rounded-lg text-xs lg:text-base"
           onClick={logout}

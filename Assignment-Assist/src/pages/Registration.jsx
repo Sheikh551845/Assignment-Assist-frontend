@@ -3,11 +3,12 @@
 
 
 
-import { AuthContext } from '../Components/AuthProvider';
+
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SocialLogin from '../Components/SocialLogin';
+import { AuthContext } from '../Components/AuthProvider';
 
 
 
@@ -34,6 +35,10 @@ export default function Registration() {
         
         const password = event.target.password.value;
 
+        const Photo = event.target.Photo.value;
+
+       
+
        
          
       
@@ -48,7 +53,9 @@ export default function Registration() {
         crateEmailUser(email, password)
             .then(res => {
               
-              update(name)
+             
+              
+              update(Photo,name)
                  .then(()=>{
                   toast.success('User created successfully');
                   navigate('/')
@@ -84,6 +91,11 @@ export default function Registration() {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="text" placeholder="email" className="input input-bordered" name='email' required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">Photo Url
+                                </label>
+                                <input type="text" placeholder="Photo Url" className="input input-bordered" name='Photo' required />
                             </div>
                            
                             <div className="form-control">
