@@ -19,6 +19,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const [CartData, setCartData] = useState([])
+  const [CurrentUser,setCurrenUser]=useState([])
  
 
 
@@ -59,6 +60,7 @@ const logout=()=>
     onAuthStateChanged(auth, (user) => {
         setUser(user);
         setLoading(false)
+        setCurrenUser(user.email)
        
     });
 }, [])
@@ -90,7 +92,8 @@ useEffect(()=>{
     CartData,
     setCartData,
     setTheme,
-    theme
+    theme,
+    CurrentUser
   }
  
     
