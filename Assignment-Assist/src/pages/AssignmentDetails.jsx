@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import  { AuthContext } from '../Components/AuthProvider';
 
@@ -102,6 +102,7 @@ export default function AssignmentDetails() {
      
          }
  
+         
 
 
 
@@ -197,6 +198,17 @@ export default function AssignmentDetails() {
   >
     Take Assignment
   </button>
+  
+  <Link to={`/UpdateAssignment/${_id}`}> 
+  <button
+    className="select-none rounded-lg bg-yellow-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-indigo-400 transition-all hover:shadow-lg hover:shadow-indigo-700 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    type="button"
+    data-ripple-light="true"
+    
+  >
+    Update Assignment
+  </button>
+  </Link>
 
   <button
     className="select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-indigo-400 transition-all hover:shadow-lg hover:shadow-indigo-700 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -206,6 +218,7 @@ export default function AssignmentDetails() {
   >
     Delete Assignment
   </button>
+  
 </div>
 
 </div>

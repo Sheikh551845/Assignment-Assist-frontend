@@ -19,7 +19,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const [CartData, setCartData] = useState([])
-  const [CurrentUser,setCurrenUser]=useState([])
+  const [CurrentUser,setCurrenUser]=useState(' ')
  
 
 

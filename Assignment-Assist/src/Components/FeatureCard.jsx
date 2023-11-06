@@ -8,13 +8,15 @@ export default function FeatureCard(Assignment) {
    
 
     const textColor =
-    difficultyLevel === "easy"
+    difficultyLevel === "Easy"
       ? "green-500"
-      : difficultyLevel === "medium"
+      : difficultyLevel === "Medium"
       ? "yellow-500"
-      : difficultyLevel === "hard"
+      : difficultyLevel === "Hard"
       ? "red-500"
      :"black";
+
+     console.log(difficultyLevel)
 
     
       const dynamicClassName = `text-${textColor}`;

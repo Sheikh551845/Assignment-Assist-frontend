@@ -5,7 +5,7 @@ import FeatureCard from './FeatureCard';
 export default function Featured() {
     const {data, theme}=useContext(AuthContext);
 
-    const SlicedData = data.slice(0,5);
+    const SlicedData = data.slice(0,4);
 
 
    
@@ -25,7 +25,7 @@ export default function Featured() {
      }
        
    
-   <div className="topic-cards mx-auto flex flex-wrap gap-3">
+   <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2">
    {
    SlicedData?.map((Assignment, index) => (
        <FeatureCard key={index} Assignment={Assignment}></FeatureCard>
