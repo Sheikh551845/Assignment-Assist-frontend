@@ -3,19 +3,26 @@ import { Link } from 'react-router-dom';
 
 export default function FeatureCard(Assignment) {
     const {title, thumbnailUrl,_id,marks,difficultyLevel}=Assignment.Assignment;
+    
+   
+   
 
     const textColor =
     difficultyLevel === "easy"
-      ? "green"
+      ? "green-500"
       : difficultyLevel === "medium"
-      ? "yellow"
+      ? "yellow-500"
       : difficultyLevel === "hard"
-      ? "red"
-      : "black";
+      ? "red-500"
+     :"black";
+
+    
+      const dynamicClassName = `text-${textColor}`;
+     
     
   return (
     <div className="mx-auto">
-    <div className="relative flex w-[18rem] h-[28rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+    <div className="relative flex w-[19rem] h-[28rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
     <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
     <img
     src={thumbnailUrl}
@@ -31,7 +38,7 @@ export default function FeatureCard(Assignment) {
     Marks : <span className="font-normal">{marks}</span>
     </p>
     <p className="mt-3 block font-sans text-xl font-semibold leading-relaxed text-gray-700 antialiased">
-     Difficulty : <span style={{ color: textColor }}>{difficultyLevel}</span>
+     Difficulty : <span className= {dynamicClassName}>{difficultyLevel}</span>
     </p>
     </div>
     <div className="p-6 pt-0 flex flex-row gap-2">
