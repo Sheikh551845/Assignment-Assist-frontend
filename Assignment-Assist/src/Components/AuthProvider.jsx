@@ -18,8 +18,10 @@ export default function AuthProvider({children}) {
   const [user, setUser] = useState({})
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
-  const [CartData, setCartData] = useState([])
+  const [TakenAssignment, setTakenAssignment] = useState([])
   const [CurrentUser,setCurrenUser]=useState(' ')
+
+  
  
 
 
@@ -53,11 +55,12 @@ const logout=()=>
 }
 
 
-
+    
 
    //Observer
    useEffect(() => {
     onAuthStateChanged(auth, (user) => {
+     
         setUser(user);
         setLoading(false)
         setCurrenUser(user.email)
@@ -76,8 +79,14 @@ useEffect(()=>{
   .then((data)=>setData(data))
   } ,[])
 
+  useEffect(()=>{
+    fetch("http://localhost:8888/MyTakenAssignment")
+    .then ((res)=> res.json())
+    .then((data)=>setTakenAssignment(data))
+    } ,[])
 
-   
+
+   console.log(TakenAssignment)
    
 
   const authInformation ={
@@ -89,11 +98,12 @@ useEffect(()=>{
     logout,
     loading,
     update,
-    CartData,
-    setCartData,
+    TakenAssignment,
+    setTakenAssignment,
     setTheme,
     theme,
-    CurrentUser
+    CurrentUser,
+    setData
   }
  
     

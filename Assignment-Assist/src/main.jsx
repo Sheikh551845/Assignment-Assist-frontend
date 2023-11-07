@@ -20,6 +20,7 @@ import MyAssignment from './pages/MyAssignment';
 import CreateAssignment from './pages/CreateAssignment';
 import AssignmentDetails from './pages/AssignmentDetails';
 import UpdateAssignment from './pages/UpdateAssignment';
+import AssignmentSubmission from './pages/AssignmentSubmission';
 
 
 
@@ -50,7 +51,8 @@ const router = createBrowserRouter([
 },
 {
   path: "/SubmittedAssignment",
-  element:<SubmittedAssignment></SubmittedAssignment>
+  element:<SubmittedAssignment></SubmittedAssignment>,
+  loader: ({params})=>fetch("http://localhost:8888/AllSubmittedAssignment")
 },
 {
   path: "/MyAssignment",
@@ -69,6 +71,16 @@ const router = createBrowserRouter([
   path: "/UpdateAssignment/:id",
   element:<UpdateAssignment></UpdateAssignment>,
   loader: ({params})=>fetch(`http://localhost:8888/AllAssignment/${params.id}`)
+},
+{
+  path :"/AssignmentSubmission/:id",
+  element:<AssignmentSubmission></AssignmentSubmission>,
+  loader: ({params})=>fetch(`http://localhost:8888/MyTakenAssignment/${params.id}`)
+},
+{
+  path :"/MarkAssignment/:id",
+  element:<AssignmentSubmission></AssignmentSubmission>,
+  loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
 }
 
 

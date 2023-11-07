@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 export default function CreateAssignment() {
     
-    const {CurrentUser}=useContext(AuthContext);
+    const {CurrentUser,user}=useContext(AuthContext);
     const [formData, setFormData] = useState({
       title: '',
       thumbnailUrl: '',
@@ -17,7 +17,8 @@ export default function CreateAssignment() {
       imageUrl: '',
       dueDate: '2023-11-07',
       description: '',
-      email: CurrentUser
+      email: CurrentUser,
+      creator: user.displayName
     });
  
 
@@ -58,7 +59,8 @@ export default function CreateAssignment() {
         imageUrl: formData.imageUrl,
         dueDate: formData.dueDate,
         description: formData.description,
-        email: CurrentUser
+        email: CurrentUser,
+        creator: user.displayName
       
         })
        
@@ -119,7 +121,7 @@ export default function CreateAssignment() {
                 placeholder="Assignment name"
                 className="input border-indigo-600 w-80 md:w-96"
                 name="title"
-                value={formData.tile}
+                value={formData.title}
                 onChange={handleChange}
                 required
               />

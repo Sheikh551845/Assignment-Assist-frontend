@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function FeatureCard(Assignment) {
+export default function TakenCard(Assignment) {
     const {title, thumbnailUrl,_id,marks,difficultyLevel}=Assignment.Assignment;
     
    
@@ -43,25 +43,17 @@ export default function FeatureCard(Assignment) {
      Difficulty : <span className= {dynamicClassName}>{difficultyLevel}</span>
     </p>
     </div>
-    <div className="p-6 pt-0 flex flex-row gap-2">
-    <Link to={`/AssignmentDetails/${_id}`}> 
+    <div className="p-6 pt-0 flex flex-row gap-2 justify-center">
+    <Link to={`/AssignmentSubmission/${_id}`}> 
   <button
     className="select-none rounded-lg bg-black py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-black transition-all hover:shadow-lg hover:shadow-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
     type="button"
     data-ripple-light="true"
   >
-    Show Details
+   Submit Assignment
   </button>
   </Link>
-  <Link to={`/UpdateAssignment/${_id}`}> 
-  <button
-    className="select-none rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500 transition-all hover:shadow-lg hover:shadow-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-    type="button"
-    data-ripple-light="true"
-  >
-    Update Assignment
-  </button>
-  </Link>
+ 
    
     </div>
     </div>

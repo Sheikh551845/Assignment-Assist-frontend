@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function FeatureCard(Assignment) {
-    const {title, thumbnailUrl,_id,marks,difficultyLevel}=Assignment.Assignment;
+export default function PendingAssignmentCard() {
+    const {title, thumbnailUrl,_id,marks,submitter}=Assignment.Assignment;
     
    
    
@@ -40,7 +40,7 @@ export default function FeatureCard(Assignment) {
     Marks : <span className="font-normal">{marks}</span>
     </p>
     <p className="mt-3 block font-sans text-xl font-semibold leading-relaxed text-gray-700 antialiased">
-     Difficulty : <span className= {dynamicClassName}>{difficultyLevel}</span>
+     Submitted by : <span className= "text-black">{submitter}</span>
     </p>
     </div>
     <div className="p-6 pt-0 flex flex-row gap-2">
@@ -50,18 +50,18 @@ export default function FeatureCard(Assignment) {
     type="button"
     data-ripple-light="true"
   >
-    Show Details
+    Mark Assignment
   </button>
   </Link>
-  <Link to={`/UpdateAssignment/${_id}`}> 
+  
   <button
     className="select-none rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500 transition-all hover:shadow-lg hover:shadow-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
     type="button"
     data-ripple-light="true"
   >
-    Update Assignment
+     Pending...
   </button>
-  </Link>
+
    
     </div>
     </div>

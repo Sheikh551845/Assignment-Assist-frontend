@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import  { AuthContext } from '../Components/AuthProvider';
+import Swal from 'sweetalert2';
 
 export default function AssignmentDetails() {
 
-    const {CurrentUser}= useContext(AuthContext);
+  const {CurrentUser,setData, data:allData}=useContext(AuthContext);
+
+
+  const navigate=useNavigate()
   
     const {_id}=useParams();
    
@@ -17,7 +21,7 @@ export default function AssignmentDetails() {
         fetch("http://localhost:8888/MyTakenAssignment")
         .then ((res)=> res.json())
         .then((data)=>{setTakenAssignment(data);
-            console.log(data)
+          
         })
         } ,[])
 
@@ -48,7 +52,7 @@ export default function AssignmentDetails() {
     ,[_id,data])
    
 
-    const {title, imageUrl,description,dueDate,marks,difficultyLevel,email,thumbnailUrl}=card;
+    const {title, imageUrl,description,dueDate,marks,difficultyLevel,email,thumbnailUrl,creator}=card;
 
 
 
@@ -85,7 +89,7 @@ export default function AssignmentDetails() {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({title, imageUrl,description,dueDate,marks,difficultyLevel,CurrentUser,thumbnailUrl})
+                body: JSON.stringify({title, imageUrl,description,dueDate,marks,difficultyLevel,CurrentUser,thumbnailUrl,creator})
             })
                 .then(res => res.json())
                 .then(data => {
@@ -103,6 +107,51 @@ export default function AssignmentDetails() {
          }
  
          
+//Delete 
+const handleDelete =()=>
+{
+ 
+  if(CurrentUser===email)
+  {
+   Swal.fire({
+       title: 'Are you sure?',
+       text: "You won't be able to revert this!",
+       icon: 'warning',
+       showCancelButton: true,
+       confirmButtonColor: '#3085d6',
+       cancelButtonColor: '#d33',
+       confirmButtonText: 'Yes, delete it!'
+   }).then((result) => {
+       if (result.isConfirmed) {
+         console.log(_id);
+
+           fetch(`http://localhost:8888/AllAssignment/${_id}`, {
+               method: 'DELETE'
+           })
+               .then(res =>res.json()
+                 )
+               .then(data => {
+                   console.log(data);
+                   if (data.deletedCount > 0) {
+                       Swal.fire(
+                           'Deleted!',
+                           'Assignment has been deleted.',
+                           'success'
+                       )
+                       const remaining = allData.filter(Assignment => Assignment._id !== _id);
+                       setData(remaining);
+                       navigate("/AllAssignment")
+                   }
+               })
+
+       }
+   })
+  }
+  else
+  {
+    toast.error("You are not the creator of this Assignment")
+  }
+}
 
 
 
@@ -154,7 +203,7 @@ export default function AssignmentDetails() {
     </div>
 <div>
 <p className="block font-sans text-white font-normal leading-relaxed text-xl antialiased">
- {email}
+ {creator?creator:email}
 </p>
 </div>
 
@@ -214,7 +263,7 @@ export default function AssignmentDetails() {
     className="select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-indigo-400 transition-all hover:shadow-lg hover:shadow-indigo-700 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
     type="button"
     data-ripple-light="true"
-    // onClick={CartSubmit}
+    onClick={handleDelete}
   >
     Delete Assignment
   </button>

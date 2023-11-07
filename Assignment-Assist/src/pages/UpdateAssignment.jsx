@@ -2,17 +2,18 @@ import { parseISO } from 'date-fns';
 import React, { useContext, useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Components/AuthProvider';
+import Swal from 'sweetalert2'
 
 export default function UpdateAssignment() {
 
     
-    const {CurrentUser}=useContext(AuthContext);
+    const {CurrentUser,setData,data,user}=useContext(AuthContext);
     const {title, imageUrl,description,dueDate,marks,difficultyLevel,email,thumbnailUrl,_id}=useLoaderData()
-
-   
+    const allData= data;
+    const navigate=useNavigate()
 
   
    
@@ -28,6 +29,7 @@ export default function UpdateAssignment() {
         dueDate: dueDate,
         description: description,
         email : email,
+        creator: user.displayName
         
       });
    
@@ -59,7 +61,29 @@ export default function UpdateAssignment() {
           dueDate: formattedDate
         });
       };
-   
+
+      useEffect(()=>
+      {
+        setFormData({
+              
+        title: formData.title,
+        thumbnailUrl: formData.thumbnailUrl,
+        difficultyLevel: formData.difficultyLevel,
+        marks: formData.marks,
+        imageUrl: formData.imageUrl,
+        dueDate: formData.dueDate,
+        description: formData.description,
+        email: email,
+        creator: user.displayName
+      
+        })
+       
+  
+      },[CurrentUser])
+
+
+
+   //Update
     const handleSubmit = (e) => {
         if(CurrentUser===email)
         {
@@ -89,7 +113,10 @@ export default function UpdateAssignment() {
         toast.error("You are not the creator of this Assignment")
     }
       };
-    
+
+
+
+      
    
     
       return (
