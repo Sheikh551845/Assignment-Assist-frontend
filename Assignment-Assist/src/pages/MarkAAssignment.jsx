@@ -11,11 +11,12 @@ export default function MarkAAssignment() {
 
     const {CurrentUser,user}=useContext(AuthContext);
 
-    const {title,dueDate,marks,email,thumbnailUrl,_id,creator,givenMarks,documentUrl,quickNote}=useLoaderData()
+    const {title,dueDate,marks,email,thumbnailUrl,_id,creator,givenMarks,documentUrl,quickNote,feedback,submitter,status}=useLoaderData()
+   
     
     const navigate=useNavigate();
 
-    
+    console.log(user.displayName)
     const [formData, setFormData] = useState({
         title: title,
         thumbnailUrl: thumbnailUrl,
@@ -26,20 +27,20 @@ export default function MarkAAssignment() {
        
         creatorEmail : email,
         submitterEmail:CurrentUser,
-        documentUrl: '',
+        documentUrl: documentUrl,
         submittedDate: dueDate,
-        quickNote: '',
-        status : 'pending',
+        quickNote: quickNote,
+        status : status,
         creator: creator,
-        submitter: user.displayName,
-        givenMarks: '',
-        feedback:'',
+        submitter: submitter,
+        givenMarks: givenMarks,
+        feedback:feedback,
         markedBy: user.displayName
 
     });
  
  
-
+   
    
     
 
@@ -51,55 +52,18 @@ export default function MarkAAssignment() {
           ...formData,
           [name]: value,
         });
-      };
-      const handleDateChange = (date) => {
-        const dateObject = new Date(date);
-
-      const year = dateObject.getFullYear();
-      const month = String(dateObject.getMonth() + 1).padStart(2, '0'); 
-      const day = String(dateObject.getDate()).padStart(2, '0');
-
-     const formattedDate = `${year}-${month}-${day}`;
         
-        setFormData({
-          ...formData,
-          dueDate: formattedDate
-        });
       };
-
-      useEffect(()=>
-      {
-        setFormData({
-              
-        title: formData.title,
-        thumbnailUrl: formData.thumbnailUrl,
-        documentUrl: formData.documentUrl,
-        marks: formData.marks,
-       
-        dueDate: formData.dueDate,
-       
-        email: CurrentUser,
-        submitterEmail:CurrentUser,
-        submittedDate: formData.submittedDate,
-        quickNote: formData.quickNote,
-        status : 'pending',
-        creator: creator,
-        submitter: user.displayName,
-        givenMarks: formData.givenMarks,
-        feedback: formData.feedback,
-        markedBy: user.displayName
-
+    
       
-        })
-       
-  
-      },[CurrentUser])
-     
+    console.log(formData)
    
     
       const handleSubmit = (e) => {
-        useEffect(()=>
-        {
+
+        e.preventDefault();
+
+       
           setFormData({
                 
           title: formData.title,
@@ -109,24 +73,24 @@ export default function MarkAAssignment() {
          
           dueDate: formData.dueDate,
          
-          email: CurrentUser,
-          submitterEmail:CurrentUser,
+          creatorEmail: formData.creatorEmail,
+          submitterEmail:formData.submitterEmail,
           submittedDate: formData.submittedDate,
           quickNote: formData.quickNote,
-          status : 'marked',
-          creator: creator,
-          submitter: user.displayName,
+          
+          creator: formData.creator,
+          submitter: formData.submitter,
           givenMarks: formData.givenMarks,
           feedback: formData.feedback,
-          markedBy: user.displayName
+          markedBy:user.displayName,
+          status : 'marked',
   
         
           })
          
     
-        },[CurrentUser])
-
-        e.preventDefault();
+      
+          console.log('Form Data:', formData);
         
     
         fetch(`http://localhost:8888/AllSubmittedAssignment/${_id}`, {
@@ -138,14 +102,19 @@ export default function MarkAAssignment() {
       })
           .then(res => res.json())
           .then(data => {
+            
               if(data.modifiedCount > 0){
-                toast.success("Assignment Marked successfully")
-                navigate("/AllAssignment")
+                Swal.fire(
+                    'Submitted',
+                    'Assignment has been Marked.',
+                    'success'
+                )
+                // navigate("/MyAssignment")
     
               }
           })
     
-          console.log('Form Data:', formData);
+          
        
       };
       
@@ -155,12 +124,14 @@ export default function MarkAAssignment() {
     
       return (
         <div className="w-full my-14">
-          <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-indigo-700 w-fit mx-auto my-5">Submit Assignment</p> 
+          <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-indigo-700 w-fit mx-auto my-5">Mark Assignment</p> 
           <div className="bg-white rounded shadow-xl mt-7 py-7 px-10 w-fit mx-auto ">
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
          <div>
             <p className="font-bold ">Document URL: </p> <a href={documentUrl} className="text-blue-500 underline">{documentUrl}</a>
             <p className="font-bold  mt-2">Given Note: </p> <a href={quickNote}>{quickNote}</a>
+            <p className="font-bold  mt-2">Total Marks: </p> <a href={marks}>{marks}</a>
+            
          </div>
 
     

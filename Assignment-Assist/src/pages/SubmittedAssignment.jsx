@@ -18,17 +18,16 @@ export default function SubmittedAssignment() {
   
 
   
-  console.log(PendingAssignments)
 
 
   return (
     <div>
      {
-       theme ==="light"?<div><h1 className="text-2xl lg:text-3xl text-black font-bold my-5 ml-5 text-center">My Taken Assignment</h1>
+       theme ==="light"?<div><h1 className="text-2xl lg:text-3xl text-black font-bold my-5 ml-5 text-center">Submitted Assignments</h1>
       </div>
        :
        <div>
-        <h1 className="text-2xl lg:text-3xl text-white font-bold my-5 ml-5 text-center">My Taken Assignment </h1>
+        <h1 className="text-2xl lg:text-3xl text-white font-bold my-5 ml-5 text-center">Submitted Assignments </h1>
         
        </div>
        

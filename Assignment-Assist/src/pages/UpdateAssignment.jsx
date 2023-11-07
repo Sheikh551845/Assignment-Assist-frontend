@@ -82,7 +82,6 @@ export default function UpdateAssignment() {
       },[CurrentUser])
 
 
-
    //Update
     const handleSubmit = (e) => {
         if(CurrentUser===email)
@@ -140,15 +139,7 @@ export default function UpdateAssignment() {
               />
     
               
-              {/* <input
-                type="text"
-                placeholder="Brand name"
-                className="input border-indigo-600 w-80 md:w-96"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                required
-              /> */}
+        
             </div>
             <div>
               <label className="label">
@@ -173,8 +164,8 @@ export default function UpdateAssignment() {
               </label>
               <select
       className="input border-indigo-600 w-80 md:w-96"
-      name="assignmentType"
-      value={formData.assignmentType}
+      name="difficultyLevel"
+      value={formData.difficultyLevel}
       onChange={handleChange}
       required
     >

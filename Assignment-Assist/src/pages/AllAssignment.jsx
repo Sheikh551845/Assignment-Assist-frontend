@@ -17,7 +17,7 @@ export default function AllAssignment() {
     setAllData(data);
     setItems(data.length);
     setNumPages([1]);
-}, [data,data.length])
+}, [data])
   
   
 
@@ -28,7 +28,7 @@ export default function AllAssignment() {
  
 
    setTypedData(data)
-  setAllData(data)
+   setAllData(data)
  
   if(e.target.value!="All")
   {
@@ -42,17 +42,21 @@ export default function AllAssignment() {
   
  }
  
+
+ 
  const handleItemChange =(e)=>
  {  
   setAllData (typedData.slice(0,e.target.value))
-  const pages=Math.ceil((AllData.length)/(e.target.value));
+  const pages=Math.ceil((typedData.length)/(e.target.value));
   setItems(e.target.value);
   setTPage([])
+
   
    for(let i=1;i<=pages; i++)
    {
     tPage.push(i);
    }
+   console.log(tPage.length)
   
    setNumPages(tPage)
  }
