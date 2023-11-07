@@ -39,15 +39,15 @@ export default function PendingAssignmentCard(Assignment) {
     <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
     {title}
     </h4>
-    <p className="mt-3 block font-sans text-xl font-semibold leading-relaxed text-gray-700 antialiased">
-    Marks : <span className="font-normal">{marks}</span>
+    <p className="mt-3 block font-sans text-xl font-bold leading-relaxed text-gray-700 antialiased">
+    Marks : <span className=" text-black font-normal">{marks}</span>
     </p>
-    <p className="mt-3 block font-sans text-xl font-semibold leading-relaxed text-gray-700 antialiased">
-     Submitted by : <span className= "text-black">{submitter}</span>
+    <p className="mt-3 block font-sans text-xl font-bold leading-relaxed text-gray-700 antialiased">
+     Submitted by : <span className= "text-black font-normal">{submitter}</span>
     </p>
 
-    <p className="mt-3 block font-sans text-xl font-semibold leading-relaxed text-gray-700 antialiased">
-      Submitted On : <span className= "text-black">{submittedDate}</span>
+    <p className="mt-3 block font-sans text-xl font-bold leading-relaxed text-gray-700 antialiased">
+      Submitted On : <span className= "text-black font-normal">{submittedDate}</span>
     </p>
     </div>
     <div className="p-6 pt-0 flex flex-row gap-2">

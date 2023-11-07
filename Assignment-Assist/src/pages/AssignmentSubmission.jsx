@@ -73,12 +73,12 @@ export default function AssignmentSubmission() {
        
         dueDate: formData.dueDate,
        
-        email: CurrentUser,
+        creatorEmail: formData.creatorEmail,
         submitterEmail:CurrentUser,
         submittedDate: formData.submittedDate,
         quickNote: formData.quickNote,
         status : 'pending',
-        creator: creator,
+        creator: formData.creator,
         submitter: user.displayName,
         givenMarks: '',
         feedback:'',
@@ -90,7 +90,7 @@ export default function AssignmentSubmission() {
   
       },[CurrentUser])
      
-   console.log(formData)
+  
     
       const handleSubmit = (e) => {
 

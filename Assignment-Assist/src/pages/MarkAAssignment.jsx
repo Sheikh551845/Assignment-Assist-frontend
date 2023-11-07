@@ -109,7 +109,7 @@ export default function MarkAAssignment() {
                     'Assignment has been Marked.',
                     'success'
                 )
-                // navigate("/MyAssignment")
+                navigate("/SubmittedAssignment")
     
               }
           })

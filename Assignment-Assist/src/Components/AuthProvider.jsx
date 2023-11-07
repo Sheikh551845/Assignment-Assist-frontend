@@ -57,16 +57,7 @@ const logout=()=>
 
     
 
-   //Observer
-   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-     
-        setUser(user);
-        setLoading(false)
-        setCurrenUser(user.email)
-       
-    });
-}, [])
+  
 
 const update=(photo,name)=>
 {
@@ -76,17 +67,28 @@ const update=(photo,name)=>
 useEffect(()=>{
   fetch("http://localhost:8888/AllAssignment")
   .then ((res)=> res.json())
-  .then((data)=>setData(data))
+  .then((data)=>{setData(data)
+    setLoading(true)})
   } ,[])
 
   useEffect(()=>{
     fetch("http://localhost:8888/MyTakenAssignment")
     .then ((res)=> res.json())
-    .then((data)=>setTakenAssignment(data))
+    .then((data)=>{setTakenAssignment(data)
+      setLoading(true)})
     } ,[])
 
 
-
+ //Observer
+ useEffect(() => {
+  onAuthStateChanged(auth, (user) => {
+   
+      setUser(user);
+      setLoading(false)
+      setCurrenUser(user.email)
+     
+  });
+}, [])
    
 
   const authInformation ={
