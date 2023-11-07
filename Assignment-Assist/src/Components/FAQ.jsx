@@ -27,7 +27,7 @@ export default function FAQ() {
                         <div className="bg-white shadow rounded p-8">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className="text-base font-semibold leading-none text-gray-800">Why should I use your service?</h2>
+                                    <h2 className="text-base font-semibold leading-none text-gray-800">Why should I use your site?</h2>
                                 </div>
                                 <button onClick={() => setBox1(!box1)} className="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer">
                                     {box1 ? (
@@ -45,7 +45,7 @@ export default function FAQ() {
                             {box1 && (
                                 <ul className="">
                                     <li>
-                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
+                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">Use our website to effortlessly manage and submit assignments, track progress, and provide feedback within your friend group. Enjoy a user-friendly interface designed to enhance collaboration and streamline the assignment process.</p>
                                     </li>
                                 </ul>
                             )}
@@ -53,7 +53,7 @@ export default function FAQ() {
                         <div className="bg-white shadow rounded p-8 mt-8">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className="text-base font-semibold leading-none text-gray-800">What payment method I can use?</h2>
+                                    <h2 className="text-base font-semibold leading-none text-gray-800">How to submit?</h2>
                                 </div>
                                 <button
                                     onClick={() => {
@@ -76,7 +76,7 @@ export default function FAQ() {
                             {box2 && (
                                 <ul>
                                     <li>
-                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
+                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">At first you have to take a assignment then in Myassignment page taken assignment will show from that you can submit a assignment. </p>
                                     </li>
                                 </ul>
                             )}
@@ -84,7 +84,7 @@ export default function FAQ() {
                         <div className="bg-white shadow rounded p-8 mt-8">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className="text-base font-semibold leading-none text-gray-800">Is your service safe to use?</h2>
+                                    <h2 className="text-base font-semibold leading-none text-gray-800">What accepted document in submission?</h2>
                                 </div>
                                 <button
                                     onClick={() => {
@@ -107,7 +107,7 @@ export default function FAQ() {
                             {box3 && (
                                 <ul>
                                     <li>
-                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
+                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">Google Drive link of any format is accepted</p>
                                     </li>
                                 </ul>
                             )}
@@ -115,7 +115,7 @@ export default function FAQ() {
                         <div className="bg-white shadow rounded p-8 mt-8">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className="text-base font-semibold leading-none text-gray-800">How to recover password?</h2>
+                                    <h2 className="text-base font-semibold leading-none text-gray-800">who will mark a assignment?</h2>
                                 </div>
                                 <button onClick={() => setBox4(!box4)} data-menu className="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer">
                                     {box4 ? (
@@ -132,7 +132,7 @@ export default function FAQ() {
                             {box4 && (
                                 <ul>
                                     <li>
-                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal, Payoneer, Master Card, Debit Card.</p>
+                                        <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">As this site is for friends so your friends will mark your submitted assignment</p>
                                     </li>
                                 </ul>
                             )}

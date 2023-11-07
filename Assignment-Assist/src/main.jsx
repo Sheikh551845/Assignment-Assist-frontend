@@ -24,6 +24,7 @@ import AssignmentSubmission from './pages/AssignmentSubmission';
 import MarkAAssignment from './pages/MarkAAssignment';
 import Challenge from './pages/Challenge';
 import MarkChallenged from './pages/MarkChallenged';
+import PrivateRoute from './Components/PrivateRoute';
 
 
 
@@ -54,47 +55,47 @@ const router = createBrowserRouter([
 },
 {
   path: "/SubmittedAssignment",
-  element:<SubmittedAssignment></SubmittedAssignment>,
+  element:<PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
   loader: ({params})=>fetch("http://localhost:8888/AllSubmittedAssignment")
 },
 {
   path: "/MyAssignment",
-  element:<MyAssignment></MyAssignment>,
+  element:<PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
   loader: ({params})=>fetch("http://localhost:8888/AllSubmittedAssignment")
 },
 {
   path: "/CreateAssignment",
-  element:<CreateAssignment></CreateAssignment>
+  element:<PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
 },
 { 
   path: "/AssignmentDetails/:_id",
-  element:<AssignmentDetails></AssignmentDetails>, 
+  element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>, 
   loader: ({params})=>fetch("http://localhost:8888/AllAssignment")
 },
 {
   path: "/UpdateAssignment/:id",
-  element:<UpdateAssignment></UpdateAssignment>,
+  element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
   loader: ({params})=>fetch(`http://localhost:8888/AllAssignment/${params.id}`)
 },
 {
   path :"/AssignmentSubmission/:id",
-  element:<AssignmentSubmission></AssignmentSubmission>,
+  element:<PrivateRoute><AssignmentSubmission></AssignmentSubmission></PrivateRoute>,
   loader: ({params})=>fetch(`http://localhost:8888/MyTakenAssignment/${params.id}`)
 },
 {
   path :"/MarkAAssignment/:id",
-  element:<MarkAAssignment></MarkAAssignment>,
+  element:<PrivateRoute><MarkAAssignment></MarkAAssignment></PrivateRoute>,
   loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
 },
 
 {
   path :"/MarkChallenged/:id",
-  element:<MarkChallenged></MarkChallenged>,
+  element:<PrivateRoute><MarkChallenged></MarkChallenged></PrivateRoute>,
   loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
 },
 {
   path :"/Challenge/:id",
-  element:<Challenge></Challenge>,
+  element:<PrivateRoute><Challenge></Challenge></PrivateRoute>,
   loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
 }
 

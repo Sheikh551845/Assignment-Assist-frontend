@@ -1,7 +1,12 @@
 import React from 'react'
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from './AuthProvider';
 
 export default function TakenCard(Assignment) {
+
+  const {setTakenAssignment,TakenAssignment}=useContext(AuthContext)
     const {title, thumbnailUrl,_id,marks,difficultyLevel}=Assignment.Assignment;
     
    
@@ -17,7 +22,46 @@ export default function TakenCard(Assignment) {
      :"black";
 
    
-
+     const handleDelete =()=>
+     {
+      
+      
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, remove it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+              console.log(_id);
+     
+                fetch(`http://localhost:8888/MyTakenAssignment/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res =>res.json()
+                      )
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Removed!',
+                                'Assignment has been removed.',
+                                'success'
+                            )
+                            const remaining = TakenAssignment.filter(Assignment => Assignment._id !== _id);
+                            setTakenAssignment(remaining);
+                           
+                        }
+                    })
+     
+            }
+        })
+       }
+     
+     
     
       const dynamicClassName = `text-${textColor}`;
      
@@ -46,7 +90,7 @@ export default function TakenCard(Assignment) {
     <div className="p-6 pt-0 flex flex-row gap-2 justify-center">
     <Link to={`/AssignmentSubmission/${_id}`}> 
   <button
-    className="select-none rounded-lg bg-black py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-black transition-all hover:shadow-lg hover:shadow-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    className="select-none rounded-lg bg-green-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-400 transition-all hover:shadow-lg hover:shadow-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
     type="button"
     data-ripple-light="true"
   >
@@ -54,6 +98,14 @@ export default function TakenCard(Assignment) {
   </button>
   </Link>
  
+  <button
+    className="select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-400 transition-all hover:shadow-lg hover:shadow-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    type="button"
+    data-ripple-light="true"
+  onClick={handleDelete}
+  >
+    Remove
+  </button>
    
     </div>
     </div>

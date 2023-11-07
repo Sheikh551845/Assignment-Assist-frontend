@@ -6,10 +6,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { parseISO } from 'date-fns';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import { HashLoader } from 'react-spinners';
 export default function MarkAAssignment() {
 
 
-    const {CurrentUser,user}=useContext(AuthContext);
+    const {CurrentUser,user,loading,theme}=useContext(AuthContext);
 
     const {title,dueDate,marks,email,thumbnailUrl,_id,creator,givenMarks,documentUrl,quickNote,feedback,submitter,status}=useLoaderData()
    
@@ -123,7 +124,16 @@ export default function MarkAAssignment() {
      
     
       return (
-        <div className="w-full my-14">
+        <div>
+             {
+            
+            loading == true?  <div className="flex justify-center items-center h-screen">
+            {
+              theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+            }
+         
+        </div>:
+          <div className="w-full my-14">
           <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-indigo-700 w-fit mx-auto my-5">Mark Assignment</p> 
           <div className="bg-white rounded shadow-xl mt-7 py-7 px-10 w-fit mx-auto ">
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
@@ -180,6 +190,9 @@ export default function MarkAAssignment() {
         </form>
         </div>
         </div>
+}
+        </div>
+      
       )
 }
 
