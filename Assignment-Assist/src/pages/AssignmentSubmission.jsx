@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../Components/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { parseISO } from 'date-fns';
@@ -11,11 +11,11 @@ export default function AssignmentSubmission() {
 
     const {title, imageUrl,description,dueDate,marks,difficultyLevel,email,thumbnailUrl,_id,creator}=useLoaderData()
 
-
-    console.log(thumbnailUrl,`${creator=='undefined'?creator:email}`)
+   const navigate =useNavigate();
+   
     const [formData, setFormData] = useState({
         title: title,
-        thumbnail: thumbnailUrl,
+        thumbnailUrl: thumbnailUrl,
        
         marks: marks,
         
@@ -27,8 +27,11 @@ export default function AssignmentSubmission() {
         submittedDate: dueDate,
         quickNote: '',
         status : 'pending',
-        creator: `${creator?creator:email}`,
-        submitter: user.displayName
+        creator: creator,
+        submitter: user.displayName,
+        givenMarks: '',
+        feedback:'',
+        markedBy:''
 
     });
  
@@ -56,7 +59,7 @@ export default function AssignmentSubmission() {
         
         setFormData({
           ...formData,
-          dueDate: formattedDate
+          submittedDate: formattedDate
         });
       };
       useEffect(()=>
@@ -65,7 +68,7 @@ export default function AssignmentSubmission() {
               
         title: formData.title,
         thumbnailUrl: formData.thumbnailUrl,
-       
+        documentUrl: formData.documentUrl,
         marks: formData.marks,
        
         dueDate: formData.dueDate,
@@ -75,15 +78,19 @@ export default function AssignmentSubmission() {
         submittedDate: formData.submittedDate,
         quickNote: formData.quickNote,
         status : 'pending',
-        creator:`${creator?creator:email}`,
-        submitter: user.displayName
+        creator: creator,
+        submitter: user.displayName,
+        givenMarks: '',
+        feedback:'',
+        markedBy:''
       
         })
+
        
   
       },[CurrentUser])
      
-   
+   console.log(formData)
     
       const handleSubmit = (e) => {
 
@@ -108,6 +115,7 @@ export default function AssignmentSubmission() {
               
     
               }
+              navigate("/MyAssignment")
           })
     
         

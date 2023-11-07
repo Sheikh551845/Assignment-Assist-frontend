@@ -21,6 +21,7 @@ import CreateAssignment from './pages/CreateAssignment';
 import AssignmentDetails from './pages/AssignmentDetails';
 import UpdateAssignment from './pages/UpdateAssignment';
 import AssignmentSubmission from './pages/AssignmentSubmission';
+import MarkAAssignment from './pages/MarkAAssignment';
 
 
 
@@ -78,8 +79,8 @@ const router = createBrowserRouter([
   loader: ({params})=>fetch(`http://localhost:8888/MyTakenAssignment/${params.id}`)
 },
 {
-  path :"/MarkAssignment/:id",
-  element:<AssignmentSubmission></AssignmentSubmission>,
+  path :"/MarkAAssignment/:id",
+  element:<MarkAAssignment></MarkAAssignment>,
   loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
 }
 

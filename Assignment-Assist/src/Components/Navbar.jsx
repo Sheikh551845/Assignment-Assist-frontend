@@ -6,7 +6,7 @@ import DarkNav from './DarkNav';
 export default function Navbar() {
 
     const {user,logout,setTheme,theme}=useContext(AuthContext)
-    console.log(user.photoURL);
+    
     return (
       <div>
   {

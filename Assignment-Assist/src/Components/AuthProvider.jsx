@@ -86,7 +86,7 @@ useEffect(()=>{
     } ,[])
 
 
-   console.log(TakenAssignment)
+
    
 
   const authInformation ={

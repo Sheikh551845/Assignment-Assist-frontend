@@ -17,13 +17,13 @@ export default function UpdateAssignment() {
 
   
    
-  console.log(dueDate)
+  
   
     const [formData, setFormData] = useState({
     
         title: title,
-        thumbnail: thumbnailUrl,
-        assignmentType:difficultyLevel,
+        thumbnailUrl: thumbnailUrl,
+        difficultyLevel:difficultyLevel,
         marks: marks,
         imageUrl: imageUrl,
         dueDate: dueDate,
@@ -101,13 +101,13 @@ export default function UpdateAssignment() {
           .then(data => {
               if(data.modifiedCount > 0){
                 toast.success("Assignment Updated successfully")
-                
+                navigate("/AllAssignment")
     
               }
           })
     
         
-        console.log('Form Data:', formData);
+       
       }
       else{
         toast.error("You are not the creator of this Assignment")
@@ -156,10 +156,10 @@ export default function UpdateAssignment() {
               </label>
               <input
                 type="text"
-                placeholder="Assignment name"
+                placeholder="Thumbnail URL"
                 className="input border-indigo-600 w-80 md:w-96"
-                name="thumbnail"
-                value={formData.thumbnail}
+                name="thumbnailUrl"
+                value={formData.thumbnailUrl}
                 onChange={handleChange}
                 required
               />
