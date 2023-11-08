@@ -20,7 +20,7 @@ export default function AuthProvider({children}) {
   const [data, setData] = useState([])
   const [TakenAssignment, setTakenAssignment] = useState([])
   const [CurrentUser,setCurrenUser]=useState(' ')
-
+  const [AllSubmittedAssignment,setAllSubmittedAssignment]=useState([])
   
  
 
@@ -68,6 +68,7 @@ useEffect(()=>{
   fetch("https://assignment-assist-back-end.vercel.app/AllAssignment")
   .then ((res)=> res.json())
   .then((data)=>{setData(data)
+    setLoading(true)
     })
   } ,[])
 
@@ -75,8 +76,19 @@ useEffect(()=>{
     fetch("https://assignment-assist-back-end.vercel.app/MyTakenAssignment")
     .then ((res)=> res.json())
     .then((data)=>{setTakenAssignment(data)
+      setLoading(true)
       })
     } ,[])
+
+    useEffect(()=>{
+      fetch("https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment")
+      .then ((res)=> res.json())
+      .then((data)=>{setAllSubmittedAssignment(data)
+        setLoading(true)
+        })
+      } ,[])
+
+    
 
 
  //Observer
@@ -105,7 +117,8 @@ useEffect(()=>{
     setTheme,
     theme,
     CurrentUser,
-    setData
+    setData,
+    AllSubmittedAssignment
   }
  
     

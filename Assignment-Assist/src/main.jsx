@@ -56,12 +56,12 @@ const router = createBrowserRouter([
 {
   path: "/SubmittedAssignment",
   element:<PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-  loader: ({params})=>fetch("https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment")
+  
 },
 {
   path: "/MyAssignment",
   element:<PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
-  loader: ({params})=>fetch("https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment")
+ 
 },
 {
   path: "/CreateAssignment",

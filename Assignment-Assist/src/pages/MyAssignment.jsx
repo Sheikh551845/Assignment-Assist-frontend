@@ -10,21 +10,21 @@ import { HashLoader } from 'react-spinners';
 
 export default function MyAssignment() {
 
-  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,data,loading}=useContext(AuthContext);
+  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,data,loading,AllSubmittedAssignment}=useContext(AuthContext);
  
 
-  const  MyTakenAssignment= TakenAssignment.filter(Assignment => Assignment.CurrentUser == CurrentUser);
+  const  MyTakenAssignment= TakenAssignment?.filter(Assignment => Assignment.CurrentUser == CurrentUser);
  
  
 
 
-  const AllSubmitted=useLoaderData()
+  
 
 
-  const  MyCreatedAssignments= data.filter(Assignment => Assignment.email == CurrentUser);
-  const  MySubmittedAssignments= AllSubmitted.filter(Assignment => Assignment.submitterEmail == CurrentUser);
-  const  MyPendingAssignments= MySubmittedAssignments.filter(Assignment => Assignment.status == 'pending');
-  const  MyMarkedAssignments= MySubmittedAssignments.filter(Assignment => Assignment.status == 'marked');
+  const  MyCreatedAssignments= data?.filter(Assignment => Assignment.email == CurrentUser);
+  const  MySubmittedAssignments= AllSubmittedAssignment?.filter(Assignment => Assignment.submitterEmail == CurrentUser);
+  const  MyPendingAssignments= MySubmittedAssignments?.filter(Assignment => Assignment.status == 'pending');
+  const  MyMarkedAssignments= MySubmittedAssignments?.filter(Assignment => Assignment.status == 'marked');
   
 
  
@@ -35,7 +35,7 @@ console.log(MyCreatedAssignments)
 
     <div>
       {
-          loading == true?  <div className="flex justify-center items-center h-screen">
+          loading == true ?  <div className="flex justify-center items-center h-screen">
           {
             theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
           }

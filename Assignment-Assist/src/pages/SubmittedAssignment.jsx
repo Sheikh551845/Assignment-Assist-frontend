@@ -7,16 +7,16 @@ import ChallengedCard from '../Components/ChallengedCard';
 import { HashLoader } from 'react-spinners';
 
 export default function SubmittedAssignment() {
-  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,loading}=useContext(AuthContext);
+  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,loading,AllSubmittedAssignment}=useContext(AuthContext);
  
 
 
-  const AllSubmitted=useLoaderData()
 
 
 
-  const  PendingAssignments= AllSubmitted.filter(Assignment => Assignment.status == 'pending');
-  const  challenged= AllSubmitted.filter(Assignment => Assignment.status == 'challenged');
+
+  const  PendingAssignments= AllSubmittedAssignment?.filter(Assignment => Assignment.status == 'pending');
+  const  challenged= AllSubmittedAssignment?.filter(Assignment => Assignment.status == 'challenged');
 
   
 
