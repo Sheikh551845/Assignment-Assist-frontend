@@ -125,7 +125,7 @@ const buttonHandler=(value)=>
               </div>
           
         <div className="max-w-screen">
-       <div className=" flex flex-wrap gap-4 w-fit mx-auto  min-h-[80vh] p-3">
+       <div className=" flex flex-wrap gap-4 w-fit mx-auto  min-h-[80vh] p-3 justify-center items-center" >
   {
   AllData?.map((Assignment, index) => (
   <FeatureCard key={index} Assignment={Assignment}></FeatureCard>

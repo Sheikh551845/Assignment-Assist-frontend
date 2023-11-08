@@ -7,7 +7,7 @@ export default function Footer() {
         <div>
         <div className="mr-10 flex flex-col items-center">
                             <img src="https://i.ibb.co/fvRQ7k7/Pngtree-vector-assignment-icon-4274708.png" className=" h-28 w-32 rounded-lg" alt="" />
-                                <h3 className=" text-gray-800 font-bold tracking-normal leading-tight ml-3 text-5xl">Assignment Assist</h3>
+                                <h3 className=" text-gray-800 font-bold tracking-normal leading-tight ml-3 text-5xl text-center">Assignment Assist</h3>
                             </div>
         </div>
         <div className="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">

@@ -1,5 +1,13 @@
-.selected
-{
-    background-color: lightskyblue;
-    color: white;
-}
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-content {
+    margin: 20px;
+  }
+  

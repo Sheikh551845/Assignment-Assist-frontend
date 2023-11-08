@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 
 export default function FeatureCard(Assignment) {
     const {title, thumbnailUrl,_id,marks,difficultyLevel}=Assignment.Assignment;
@@ -21,9 +23,19 @@ export default function FeatureCard(Assignment) {
     
       const dynamicClassName = `text-${textColor}`;
      
+      const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 3 },
+      };
     
   return (
-    <div className="mx-auto">
+
+    <motion.div
+  initial="hidden"
+  animate="visible"
+  variants={variants}
+>
+<div className="mx-auto">
     <div className="relative flex w-[19rem] h-[28rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
     <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
     <img
@@ -66,5 +78,7 @@ export default function FeatureCard(Assignment) {
     </div>
     </div>
     </div>
+</motion.div>
+ 
   )
 }

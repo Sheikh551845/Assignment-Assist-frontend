@@ -70,14 +70,7 @@ export default function AssignmentDetails() {
      ,[TakenAssignment])
 
   
-    //   console.log(exist.length)
-    //  if(!exist || exist.length==0)
-    //  {
-    //    console.log("helloo");
-    //  }
-    //  else{
-    //     console.log("helloo hoilo na");
-    //  }
+  
 
      const CartSubmit=()=>
      {
@@ -163,7 +156,7 @@ const handleDelete =()=>
 
    </div>
    <div className="w-full h-[120px]  bg-sky-200 bg-opacity-60 bg-blend-overlay">
-       <p className="text-black p-4 text-3xl font-bold text-left mt-5 ml-5">{title} </p>
+       <p className="text-black p-4 text-2xl md:text-3xl font-bold text-left mt-5 ml-5">{title} </p>
    </div>
  </div>
  
@@ -171,11 +164,11 @@ const handleDelete =()=>
 <div className="p-6">
 <div className="flex gap-2 content-center justify-items-center ">
     <div>
-    <h5 className="mb-2 block font-sans text-2xl font-bold leading-snug tracking-normal text-black antialiased">
+    <h5 className="mb-2 block font-sans text-lg md:text-2xl font-bold leading-snug tracking-normal text-black antialiased">
  Details:</h5>
     </div>
 <div>
-<p className="block font-sans text-white font-normal leading-relaxed text-xl antialiased">
+<p className="block font-sans text-white font-normal leading-relaxed text-normal md:text-xl antialiased">
  {description}
 </p>
 </div>
@@ -185,11 +178,11 @@ const handleDelete =()=>
 
 <div className="flex gap-2 content-center justify-items-center ">
     <div>
-    <h5 className="mb-2 block font-sans text-2xl font-bold leading-snug tracking-normal text-black antialiased">
+    <h5 className="mb-2 block font-sans text-lg md:text-2xl font-bold leading-snug tracking-normal text-black antialiased">
  Marks:</h5>
     </div>
 <div>
-<p className="block font-sans text-white font-normal leading-relaxed text-xl antialiased">
+<p className="block font-sans text-white font-normal leading-relaxed text-normal md:text-xl antialiased">
  {marks}
 </p>
 </div>
@@ -198,11 +191,11 @@ const handleDelete =()=>
 </div>
 <div className="flex gap-2 content-center justify-items-center ">
     <div>
-    <h5 className="mb-2 block font-sans text-2xl font-bold leading-snug tracking-normal text-black antialiased">
+    <h5 className="mb-2 block font-sans text-lg md:text-2xl font-bold leading-snug tracking-normal text-black antialiased">
  Created By:</h5>
     </div>
 <div>
-<p className="block font-sans text-white font-normal leading-relaxed text-xl antialiased">
+<p className="block font-sans text-white font-normal leading-relaxed text-normal md:text-xl antialiased">
  {creator?creator:email}
 </p>
 </div>
@@ -211,11 +204,11 @@ const handleDelete =()=>
 
 <div className="flex gap-2 content-center justify-items-center ">
     <div>
-    <h5 className="mb-2 block font-sans text-2xl font-bold leading-snug tracking-normal text-black antialiased">
+    <h5 className="mb-2 block font-sans text-lg md:text-2xl font-bold leading-snug tracking-normal text-black antialiased">
     Difficulty Level:</h5>
     </div>
 <div>
-<p className="block font-sans text-white font-normal leading-relaxed text-xl antialiased">
+<p className="block font-sans text-white font-normal leading-relaxed text-normal md:text-xl antialiased">
  {difficultyLevel}
 </p>
 </div>
@@ -223,11 +216,11 @@ const handleDelete =()=>
 </div>
 <div className="flex gap-2 content-center justify-items-center ">
     <div>
-    <h5 className="mb-2 block font-sans text-2xl font-bold leading-snug tracking-normal text-black antialiased">
+    <h5 className="mb-2 block font-sans text-lg md:text-2xl font-bold leading-snug tracking-normal text-black antialiased">
  Due Date:</h5>
     </div>
 <div>
-<p className="block font-sans text-white font-normal leading-relaxed text-xl antialiased">
+<p className="block font-sans text-white font-normal leading-relaxed text-normal md:text-xl antialiased">
  {dueDate}
 </p>
 </div>

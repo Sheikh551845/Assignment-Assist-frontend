@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { AuthContext } from './AuthProvider';
 import FeatureCard from './FeatureCard';
 
@@ -7,7 +7,7 @@ export default function Featured() {
 
     const SlicedData = data.slice(0,4);
 
-
+    const scrollRef = useRef(null)
    
  return (
    
@@ -25,7 +25,7 @@ export default function Featured() {
      }
        
    
-   <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2">
+   <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2 justify-center items-center">
    {
    SlicedData?.map((Assignment, index) => (
        <FeatureCard key={index} Assignment={Assignment}></FeatureCard>

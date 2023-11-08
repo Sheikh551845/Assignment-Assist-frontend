@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { HashLoader } from 'react-spinners';
 
 export default function MarkChallenged() {
-    const {CurrentUser,user}=useContext(AuthContext);
+    const {CurrentUser,user,loading,theme}=useContext(AuthContext);
 
     const {title,dueDate,marks,email,thumbnailUrl,_id,creator,givenMarks,documentUrl,quickNote,feedback,submitter,status,challengeIssue}=useLoaderData()
    

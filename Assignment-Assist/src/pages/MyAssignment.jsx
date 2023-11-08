@@ -54,7 +54,7 @@ console.log(loading)
          
        }
   
-  <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2">
+  <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2 justify-center items-center">
      {
      MyTakenAssignment?.map((Assignment, index) => (
          <TakenCard key={index} Assignment={Assignment}></TakenCard>
@@ -90,7 +90,7 @@ console.log(loading)
       }
       </div>:
       <div>
-          <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit my-12">
+          <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit my-12 justify-center items-center">
            {
         MyPendingAssignments?.map((Assignment, index) => (
             <MyPendingCard key={index} Assignment={Assignment}></MyPendingCard>
