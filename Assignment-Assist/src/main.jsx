@@ -56,12 +56,12 @@ const router = createBrowserRouter([
 {
   path: "/SubmittedAssignment",
   element:<PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-  loader: ({params})=>fetch("http://localhost:8888/AllSubmittedAssignment")
+  loader: ({params})=>fetch("https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment")
 },
 {
   path: "/MyAssignment",
   element:<PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
-  loader: ({params})=>fetch("http://localhost:8888/AllSubmittedAssignment")
+  loader: ({params})=>fetch("https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment")
 },
 {
   path: "/CreateAssignment",
@@ -70,33 +70,33 @@ const router = createBrowserRouter([
 { 
   path: "/AssignmentDetails/:_id",
   element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>, 
-  loader: ({params})=>fetch("http://localhost:8888/AllAssignment")
+  loader: ({params})=>fetch("https://assignment-assist-back-end.vercel.app/AllAssignment")
 },
 {
   path: "/UpdateAssignment/:id",
   element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-  loader: ({params})=>fetch(`http://localhost:8888/AllAssignment/${params.id}`)
+  loader: ({params})=>fetch(`https://assignment-assist-back-end.vercel.app/AllAssignment/${params.id}`)
 },
 {
   path :"/AssignmentSubmission/:id",
   element:<PrivateRoute><AssignmentSubmission></AssignmentSubmission></PrivateRoute>,
-  loader: ({params})=>fetch(`http://localhost:8888/MyTakenAssignment/${params.id}`)
+  loader: ({params})=>fetch(`https://assignment-assist-back-end.vercel.app/MyTakenAssignment/${params.id}`)
 },
 {
   path :"/MarkAAssignment/:id",
   element:<PrivateRoute><MarkAAssignment></MarkAAssignment></PrivateRoute>,
-  loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
+  loader: ({params})=>fetch(`https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment/${params.id}`)
 },
 
 {
   path :"/MarkChallenged/:id",
   element:<PrivateRoute><MarkChallenged></MarkChallenged></PrivateRoute>,
-  loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
+  loader: ({params})=>fetch(`https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment/${params.id}`)
 },
 {
   path :"/Challenge/:id",
   element:<PrivateRoute><Challenge></Challenge></PrivateRoute>,
-  loader: ({params})=>fetch(`http://localhost:8888/AllSubmittedAssignment/${params.id}`)
+  loader: ({params})=>fetch(`https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment/${params.id}`)
 }
 
 

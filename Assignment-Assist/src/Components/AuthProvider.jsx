@@ -65,17 +65,17 @@ const update=(photo,name)=>
 }
 
 useEffect(()=>{
-  fetch("http://localhost:8888/AllAssignment")
+  fetch("https://assignment-assist-back-end.vercel.app/AllAssignment")
   .then ((res)=> res.json())
   .then((data)=>{setData(data)
-    setLoading(true)})
+    })
   } ,[])
 
   useEffect(()=>{
-    fetch("http://localhost:8888/MyTakenAssignment")
+    fetch("https://assignment-assist-back-end.vercel.app/MyTakenAssignment")
     .then ((res)=> res.json())
     .then((data)=>{setTakenAssignment(data)
-      setLoading(true)})
+      })
     } ,[])
 
 
@@ -85,7 +85,7 @@ useEffect(()=>{
    
       setUser(user);
       setLoading(false)
-      setCurrenUser(user.email)
+      setCurrenUser(user?.email)
      
   });
 }, [])

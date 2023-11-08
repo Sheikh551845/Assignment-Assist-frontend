@@ -1,21 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { AuthContext } from './AuthProvider';
 
 
 export default function FeatureCard(Assignment) {
-    const {title, thumbnailUrl,_id,marks,difficultyLevel}=Assignment.Assignment;
+
+  
+    const {title, thumbnailUrl,_id,marks,difficultyLevel,email}=Assignment.Assignment;
     
    
-   
+   const {CurrentUser}=useContext(AuthContext)
+
+   if(CurrentUser==email){
+    console.log(CurrentUser,email)
+   }
+
+
 
     const textColor =
     difficultyLevel === "Easy"
       ? "green-500"
       : difficultyLevel === "Medium"
-      ? "yellow-500"
+      ? "yellow-600"
       : difficultyLevel === "Hard"
-      ? "red-500"
+      ? "red-400"
      :"black";
 
    

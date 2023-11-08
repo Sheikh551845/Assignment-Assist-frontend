@@ -90,7 +90,7 @@ export default function UpdateAssignment() {
         
         e.preventDefault();
     
-        fetch(`http://localhost:8888/AllAssignment/${_id}`, {
+        fetch(`https://assignment-assist-back-end.vercel.app/AllAssignment/${_id}`, {
           method: 'PUT',
           headers: {
               'content-type': 'application/json'
@@ -111,6 +111,7 @@ export default function UpdateAssignment() {
       }
       else{
         toast.error("You are not the creator of this Assignment")
+        navigate("/AllAssignment")
     }
       };
 

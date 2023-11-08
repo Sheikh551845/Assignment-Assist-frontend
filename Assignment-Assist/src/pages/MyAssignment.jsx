@@ -29,7 +29,7 @@ export default function MyAssignment() {
 
  
   
-console.log(loading)
+console.log(MyCreatedAssignments)
 
   return (
 
@@ -128,7 +128,7 @@ console.log(loading)
   
   <div className="">
     {
-      MySubmittedAssignments.length == 0 ?    <div className='w-fit mx-auto mt-12'>
+      MyCreatedAssignments.length == 0 ?    <div className='w-fit mx-auto mt-12'>
         {
         theme ==="light"?<div><h1 className="text-xl lg:text-2xl text-red-600 font-bold my-5 ml-5 text-center">No Assignment Created Yet!</h1>
        </div>
@@ -141,7 +141,7 @@ console.log(loading)
       }
       </div>:
       <div>
-          <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit my-12">
+          <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit my-12 justify-center items-center">
            {
         MyCreatedAssignments?.map((Assignment, index) => (
             <FeatureCard key={index} Assignment={Assignment}></FeatureCard>

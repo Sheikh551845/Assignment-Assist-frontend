@@ -7,6 +7,7 @@ import { AuthContext } from '../Components/AuthProvider'
 
 export default function Home() {
   const {loading,theme}=useContext(AuthContext);
+  console.log(loading)
   return (
   
     <div>

@@ -18,7 +18,7 @@ export default function AssignmentDetails() {
     const [exist, setExist]=useState([])
 
     useEffect(()=>{
-        fetch("http://localhost:8888/MyTakenAssignment")
+        fetch("https://assignment-assist-back-end.vercel.app/MyTakenAssignment")
         .then ((res)=> res.json())
         .then((data)=>{setTakenAssignment(data);
           
@@ -77,7 +77,7 @@ export default function AssignmentDetails() {
         
         if(!exist || exist.length==0){
 
-            fetch('http://localhost:8888/MyTakenAssignment', {
+            fetch('https://assignment-assist-back-end.vercel.app/MyTakenAssignment', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -118,7 +118,7 @@ const handleDelete =()=>
        if (result.isConfirmed) {
          console.log(_id);
 
-           fetch(`http://localhost:8888/AllAssignment/${_id}`, {
+           fetch(`https://assignment-assist-back-end.vercel.app/AllAssignment/${_id}`, {
                method: 'DELETE'
            })
                .then(res =>res.json()

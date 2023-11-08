@@ -76,11 +76,11 @@ export default function SubmittedAssignment() {
  
      <div className='my-10'>
       {
-        theme ==="light"?<div><h1 className="text-2xl lg:text-3xl text-black font-bold my-5 ml-5 text-center">Challenged Assignments</h1>
+        theme ==="light"?<div><h1 className="text-2xl lg:text-3xl text-black font-bold my-10 ml-5 text-center">Challenged Assignments</h1>
        </div>
         :
         <div>
-         <h1 className="text-2xl lg:text-3xl text-white font-bold my-5 ml-5 text-center">Challenged Assignments </h1>
+         <h1 className="text-2xl lg:text-3xl text-white font-bold my-10 ml-5 text-center">Challenged Assignments </h1>
          
         </div>
         

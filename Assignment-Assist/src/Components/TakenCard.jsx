@@ -38,7 +38,7 @@ export default function TakenCard(Assignment) {
             if (result.isConfirmed) {
               console.log(_id);
      
-                fetch(`http://localhost:8888/MyTakenAssignment/${_id}`, {
+                fetch(`https://assignment-assist-back-end.vercel.app/MyTakenAssignment/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res =>res.json()

@@ -94,7 +94,7 @@ export default function MarkChallenged() {
           console.log('Form Data:', formData);
         
     
-        fetch(`http://localhost:8888/AllSubmittedAssignment/${_id}`, {
+        fetch(`https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment/${_id}`, {
           method: 'PUT',
           headers: {
               'content-type': 'application/json'

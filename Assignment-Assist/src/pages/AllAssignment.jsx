@@ -115,9 +115,9 @@ const buttonHandler=(value)=>
         required
       >
         <option value="All">All</option>
-        <option value="easy">easy</option>
-        <option value="medium">medium</option>
-        <option value="hard">hard</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Mard">Hard</option>
   
       </select>
             </div>
@@ -154,10 +154,10 @@ const buttonHandler=(value)=>
         required
       >
         <option value={data.length}>Items per page</option>
-        <option value="2">2</option>
-        <option value="4">4</option>
         <option value="5">5</option>
-        <option value="6">6</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
   
       </select>
             </div>

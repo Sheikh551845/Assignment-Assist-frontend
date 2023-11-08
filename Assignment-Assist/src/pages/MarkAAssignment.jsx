@@ -56,16 +56,9 @@ export default function MarkAAssignment() {
         
       };
     
-      
-    console.log(formData)
-   
-    
-      const handleSubmit = (e) => {
-
-        e.preventDefault();
-
-       
-          setFormData({
+      useEffect(()=>
+      {
+        setFormData({
                 
           title: formData.title,
           thumbnailUrl: formData.thumbnailUrl,
@@ -88,13 +81,18 @@ export default function MarkAAssignment() {
   
         
           })
-         
+      },[]
+      )
     
-      
-          console.log('Form Data:', formData);
-        
+   
+   
     
-        fetch(`http://localhost:8888/AllSubmittedAssignment/${_id}`, {
+      const handleSubmit = (e) => {
+
+        e.preventDefault();
+
+    
+        fetch(`https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment/${_id}`, {
           method: 'PUT',
           headers: {
               'content-type': 'application/json'
@@ -106,7 +104,7 @@ export default function MarkAAssignment() {
             
               if(data.modifiedCount > 0){
                 Swal.fire(
-                    'Submitted',
+                    'Marked',
                     'Assignment has been Marked.',
                     'success'
                 )

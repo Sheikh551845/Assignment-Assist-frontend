@@ -97,7 +97,7 @@ export default function AssignmentSubmission() {
         e.preventDefault();
         
     
-        fetch('http://localhost:8888/AllSubmittedAssignment', {
+        fetch('https://assignment-assist-back-end.vercel.app/AllSubmittedAssignment', {
           method: 'POST',
           headers: {
               'content-type': 'application/json'
