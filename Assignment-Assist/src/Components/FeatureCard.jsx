@@ -14,7 +14,7 @@ export default function FeatureCard(Assignment) {
    const {CurrentUser}=useContext(AuthContext)
 
    if(CurrentUser==email){
-    console.log(CurrentUser,email)
+   
    }
 
 

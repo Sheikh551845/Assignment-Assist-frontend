@@ -1,15 +1,19 @@
 import React, { useContext, useRef } from 'react'
 import { AuthContext } from './AuthProvider';
 import FeatureCard from './FeatureCard';
+import { HashLoader } from 'react-spinners';
 
 export default function Featured() {
-    const {data, theme}=useContext(AuthContext);
+    const {data, theme,DataLoading}=useContext(AuthContext);
+   
 
     const SlicedData = data.slice(0,4);
 
     const scrollRef = useRef(null)
    
  return (
+  <div>
+    
    
    
    <div className="mx-auto my-24">
@@ -23,6 +27,13 @@ export default function Featured() {
        </div>
        
      }
+       {
+         DataLoading == true?  <div className="flex justify-center items-center h-screen">
+         {
+           theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+         }
+      
+     </div>:
        
    
    <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2 justify-center items-center">
@@ -32,7 +43,9 @@ export default function Featured() {
      ))
  }
    </div>
-   
+  }
+ </div>
+
  </div>
  )
 }

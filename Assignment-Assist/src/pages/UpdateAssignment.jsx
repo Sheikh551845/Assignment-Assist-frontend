@@ -142,7 +142,7 @@ export default function UpdateAssignment() {
                <input
                  type="text"
                  placeholder="Assignment name"
-                 className="input border-indigo-600 w-80 md:w-96"
+                 className="input border-indigo-600 w-[15rem] md:w-96"
                  name="title"
                  value={formData.title}
                  onChange={handleChange}
@@ -159,7 +159,7 @@ export default function UpdateAssignment() {
                <input
                  type="text"
                  placeholder="Thumbnail URL"
-                 className="input border-indigo-600 w-80 md:w-96"
+                 className="input border-indigo-600 w-[15rem] md:w-96"
                  name="thumbnailUrl"
                  value={formData.thumbnailUrl}
                  onChange={handleChange}
@@ -174,7 +174,7 @@ export default function UpdateAssignment() {
                  <span className="label-text text-bold text-indigo-600">Assignment type</span>
                </label>
                <select
-       className="input border-indigo-600 w-80 md:w-96"
+       className="input border-indigo-600 w-[15rem] md:w-96"
        name="difficultyLevel"
        value={formData.difficultyLevel}
        onChange={handleChange}
@@ -196,7 +196,7 @@ export default function UpdateAssignment() {
                <input
                  type="text"
                  placeholder="marks"
-                 className="input border-indigo-600 w-80 md:w-96"
+                 className="input border-indigo-600 w-[15rem] md:w-96"
                  name="marks"
                  value={formData.marks}
                  onChange={handleChange}
@@ -213,7 +213,7 @@ export default function UpdateAssignment() {
                <input
                  type="text"
                  placeholder="Image URL"
-                 className="input border-indigo-600 w-80 md:w-96"
+                 className="input border-indigo-600 w-[15rem] md:w-96"
                  name="imageUrl"
                  value={formData.imageUrl}
                  onChange={handleChange}
@@ -228,7 +228,7 @@ export default function UpdateAssignment() {
        selected={parseISO(formData.dueDate)}
        onChange={handleDateChange}
        dateFormat="yyyy-MM-dd"
-       className="input border-indigo-600 w-80 md:w-96"
+       className="input border-indigo-600 w-[15rem] md:w-96"
      />
              
               </div>
@@ -243,7 +243,7 @@ export default function UpdateAssignment() {
                <input
                  type="text"
                  placeholder="description"
-                 className="input border-indigo-600 w-80 md:w-96"
+                 className="input border-indigo-600 w-[15rem] md:w-96"
                  name="description"
                  value={formData.description}
                  onChange={handleChange}

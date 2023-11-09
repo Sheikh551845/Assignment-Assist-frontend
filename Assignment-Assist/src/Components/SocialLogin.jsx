@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import { AuthContext } from './AuthProvider';
+
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { AuthContext } from './AuthProvider';
 
 export default function SocialLogin() {
     const navigate = useNavigate()
@@ -13,11 +14,12 @@ export default function SocialLogin() {
             .then(res => {
                 toast.success('User logged in successfully');
                 navigate('/')
-               
+
             })
             .catch(error => {
+                console.log(error)
                 toast.error(error.message)
-              
+
             })
     }
   return (
@@ -27,10 +29,10 @@ export default function SocialLogin() {
                 <button
                     onClick={() =>handleSocialLogin(googleLogin)}
                     className="btn btn-neutral btn-sm">Google</button>
-               
+
             </div>
     </div>
-           
-        
+
+
   )
 }

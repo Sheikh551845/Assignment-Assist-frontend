@@ -7,7 +7,7 @@ import ChallengedCard from '../Components/ChallengedCard';
 import { HashLoader } from 'react-spinners';
 
 export default function SubmittedAssignment() {
-  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,loading,AllSubmittedAssignment}=useContext(AuthContext);
+  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,DataLoading,AllSubmittedAssignment}=useContext(AuthContext);
  
 
 
@@ -25,13 +25,7 @@ export default function SubmittedAssignment() {
 
   return (
 <div>
-{
-     loading == true?  <div className="flex justify-center items-center h-screen">
-     {
-       theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
-     }
-  
- </div>:
+
   <div>
   <div>
       {
@@ -59,12 +53,23 @@ export default function SubmittedAssignment() {
        
      }
      </div>:
+     <div>
+         {
+          DataLoading == true ?  <div className="flex justify-center items-center h-screen">
+          {
+            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+          }
+       
+      </div>:
+     
      <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit">
           {
        PendingAssignments?.map((Assignment, index) => (
            <PendingAssignmentCard key={index} Assignment={Assignment}></PendingAssignmentCard>
          ))
      }
+     </div>
+}
      </div>
   
    }
@@ -100,6 +105,16 @@ export default function SubmittedAssignment() {
        
      }
      </div>:
+     <div>
+         {
+          DataLoading == true ?  <div className="flex justify-center items-center h-screen">
+          {
+            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+          }
+       
+      </div>:
+
+     
      <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit">
           {
        challenged?.map((Assignment, index) => (
@@ -107,13 +122,15 @@ export default function SubmittedAssignment() {
          ))
      }
      </div>
+}
+     </div>
   
    }
     
     </div>
      </div>
      </div>
-}
+
 </div>
  
    

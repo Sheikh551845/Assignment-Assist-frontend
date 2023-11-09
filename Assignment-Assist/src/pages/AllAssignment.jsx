@@ -92,13 +92,7 @@ const buttonHandler=(value)=>
   return (
     <div className="max-w-screen my-24 ">
 
-      {
-        loading == true?  <div className="flex justify-center items-center h-screen">
-          {
-            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
-          }
-       
-      </div>:
+    
         <div className="">
         <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-indigo-700 w-fit mx-auto my-5">All Assignment</p> 
             <div className="flex  justify-end mb-5 ">
@@ -125,13 +119,22 @@ const buttonHandler=(value)=>
               </div>
           
         <div className="max-w-screen">
+        {
+        loading == true?  <div className="flex justify-center items-center h-[60vh] md:h-[80vh]">
+          {
+            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+          }
+       
+      </div>:
        <div className=" flex flex-wrap gap-4 w-fit mx-auto  min-h-[80vh] p-3 justify-center items-center" >
+
   {
   AllData?.map((Assignment, index) => (
   <FeatureCard key={index} Assignment={Assignment}></FeatureCard>
   ))
   }
   </div>
+      }
   
   <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
   <div className="flex  items-center justify-center gap-5">
@@ -167,7 +170,7 @@ const buttonHandler=(value)=>
   
   
         </div>
-      }
+      
       
     
 

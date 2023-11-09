@@ -135,9 +135,9 @@ export default function MarkAAssignment() {
           <div className="w-full my-14">
           <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-indigo-700 w-fit mx-auto my-5">Mark Assignment</p> 
           <div className="bg-white rounded shadow-xl mt-7 py-7 px-10 w-fit mx-auto ">
-        <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
+        <form onSubmit={handleSubmit} className="w-[15rem] md:w-fit flex flex-col gap-3">
          <div>
-            <p className="font-bold ">Document URL: </p> <a href={documentUrl} className="text-blue-500 underline">{documentUrl}</a>
+            <p className="font-bold w-[15rem] md:w-screen">Document URL: </p> <a href={documentUrl} className="text-blue-500 underline">Document Url</a>
             <p className="font-bold  mt-2">Given Note: </p> <a href={quickNote}>{quickNote}</a>
             <p className="font-bold  mt-2">Total Marks: </p> <a href={marks}>{marks}</a>
             
@@ -152,7 +152,7 @@ export default function MarkAAssignment() {
               <input
                 type="text"
                 placeholder="Give Marks"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="givenMarks"
                 value={formData.givenMarks}
                 onChange={handleChange}
@@ -169,7 +169,7 @@ export default function MarkAAssignment() {
               <textarea
                 
                 placeholder="Give Feedback"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="feedback"
                 value={formData.feedback}
                 onChange={handleChange}

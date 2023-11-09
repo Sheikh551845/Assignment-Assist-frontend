@@ -73,6 +73,17 @@ export default function CreateAssignment() {
 
         e.preventDefault();
         
+        
+        if( formData.title==''|| formData.thumbnailUrl==''|| formData.difficultyLevel==''|| formData.imageUrl==''|| formData.dueDate=='' || formData.description==''|| formData.marks=='')
+        {
+          toast.error("Give all information")
+        }
+        else if(formData.marks<=10 || formData.marks>100 )
+        {
+         toast.error("Marks should be in between 10 to 100")
+        }
+        else
+        {
     
         fetch('https://assignment-assist-back-end.vercel.app/AllAssignment', {
           method: 'POST',
@@ -102,16 +113,21 @@ export default function CreateAssignment() {
               }
           })
     
-        
+        }
         console.log('Form Data:', formData);
       };
+
+
+
+
+
     
       return (
         <div className="w-full my-14">
           <p className="lg:text-4xl text-3xl font-extrabold leading-9 text-indigo-700 w-fit mx-auto my-5">Add Assignment</p> 
           <div className="bg-white rounded shadow-xl mt-7 py-7 px-10 w-fit mx-auto ">
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
-          <div className="form-control flex lg:gap-12 flex-col lg:flex-row flex-wrap lg:items-center lg:justify-center mx-auto">
+          <div className="form-control flex lg:gap-12 flex-col lg:flex-row flex-wrap lg:items-center lg:justify-center mx-auto w-fit">
             <div>
               <label className="label">
                 <span className="label-text text-bold text-indigo-600">Title</span>
@@ -119,7 +135,7 @@ export default function CreateAssignment() {
               <input
                 type="text"
                 placeholder="Assignment name"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
@@ -135,7 +151,7 @@ export default function CreateAssignment() {
               <input
                 type="text"
                 placeholder="thumbnailUrl URL"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="thumbnailUrl"
                 value={formData.thumbnailUrl}
                 onChange={handleChange}
@@ -150,7 +166,7 @@ export default function CreateAssignment() {
                 <span className="label-text text-bold text-indigo-600">Assignment type</span>
               </label>
               <select
-      className="input border-indigo-600 w-80 md:w-96"
+      className="input border-indigo-600 w-[15rem] md:w-96"
       name="difficultyLevel"
       value={formData.difficultyLevel}
       onChange={handleChange}
@@ -172,7 +188,7 @@ export default function CreateAssignment() {
               <input
                 type="text"
                 placeholder="marks"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="marks"
                 value={formData.marks}
                 onChange={handleChange}
@@ -189,7 +205,7 @@ export default function CreateAssignment() {
               <input
                 type="text"
                 placeholder="Image URL"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="imageUrl"
                 value={formData.imageUrl}
                 onChange={handleChange}
@@ -205,7 +221,7 @@ export default function CreateAssignment() {
       selected={parseISO(formData.dueDate)}
       onChange={handleDateChange}
       dateFormat="yyyy-MM-dd"
-      className="input border-indigo-600 w-80 md:w-96"
+      className="input border-indigo-600 w-[15rem] md:w-96"
     />
              </div>
            
@@ -219,7 +235,7 @@ export default function CreateAssignment() {
               <input
                 type="text"
                 placeholder="description"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}

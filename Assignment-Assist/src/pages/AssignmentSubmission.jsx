@@ -137,7 +137,7 @@ export default function AssignmentSubmission() {
               <input
                 type="text"
                 placeholder="Document URL"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="documentUrl"
                 value={formData.documentUrl}
                 onChange={handleChange}
@@ -158,7 +158,7 @@ export default function AssignmentSubmission() {
       selected={parseISO(formData.submittedDate)}
       onChange={handleDateChange}
       dateFormat="yyyy-MM-dd"
-      className="input border-indigo-600 w-80 md:w-96"
+      className="input border-indigo-600 w-[15rem] md:w-96"
     />
              </div>
            
@@ -172,7 +172,7 @@ export default function AssignmentSubmission() {
               <textarea
                 
                 placeholder="Give quick note"
-                className="input border-indigo-600 w-80 md:w-96"
+                className="input border-indigo-600 w-[15rem] md:w-96"
                 name="quickNote"
                 value={formData.quickNote}
                 onChange={handleChange}

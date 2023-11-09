@@ -153,7 +153,7 @@ export default function MarkChallenged() {
              <input
                type="text"
                placeholder="Give Marks"
-               className="input border-indigo-600 w-80 md:w-96"
+               className="input border-indigo-600 w-[15rem] md:w-96"
                name="givenMarks"
                value={formData.givenMarks}
                onChange={handleChange}
@@ -170,7 +170,7 @@ export default function MarkChallenged() {
              <textarea
                
                placeholder="Give Feedback"
-               className="input border-indigo-600 w-80 md:w-96"
+               className="input border-indigo-600 w-[15rem] md:w-96"
                name="feedback"
                value={formData.feedback}
                onChange={handleChange}

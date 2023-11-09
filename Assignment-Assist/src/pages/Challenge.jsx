@@ -139,7 +139,7 @@ export default function Challenge() {
              <textarea
                type="text"
                placeholder="Write why you want to challenge"
-               className="input border-indigo-600 w-80 md:w-96 h-40"
+               className="input border-indigo-600 w-[15rem] md:w-96 h-40"
                name="challengeIssue"
                value={formData.challengeIssue}
                onChange={handleChange}

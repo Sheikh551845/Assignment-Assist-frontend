@@ -10,7 +10,7 @@ import { HashLoader } from 'react-spinners';
 
 export default function MyAssignment() {
 
-  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,data,loading,AllSubmittedAssignment}=useContext(AuthContext);
+  const {theme, TakenAssignment,setTakenAssignment,CurrentUser,data,DataLoading,AllSubmittedAssignment}=useContext(AuthContext);
  
 
   const  MyTakenAssignment= TakenAssignment?.filter(Assignment => Assignment.CurrentUser == CurrentUser);
@@ -34,13 +34,7 @@ console.log(MyCreatedAssignments)
   return (
 
     <div>
-      {
-          loading == true ?  <div className="flex justify-center items-center h-screen">
-          {
-            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
-          }
-       
-      </div>:
+   
        <div>
      
        {
@@ -53,6 +47,13 @@ console.log(MyCreatedAssignments)
          </div>
          
        }
+          {
+          DataLoading == true ?  <div className="flex justify-center items-center h-screen">
+          {
+            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+          }
+       
+      </div>:
   
   <div className="topic-cards mx-auto flex flex-wrap gap-3 p-2 justify-center items-center">
      {
@@ -61,6 +62,7 @@ console.log(MyCreatedAssignments)
        ))
    }
      </div>
+}
   
   
      <div className="my-10">
@@ -90,6 +92,13 @@ console.log(MyCreatedAssignments)
       }
       </div>:
       <div>
+           {
+          DataLoading == true ?  <div className="flex justify-center items-center h-screen">
+          {
+            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+          }
+       
+      </div>:
           <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit my-12 justify-center items-center">
            {
         MyPendingAssignments?.map((Assignment, index) => (
@@ -103,7 +112,7 @@ console.log(MyCreatedAssignments)
       }
       </div>
   
-     
+    }
       </div>
     
    
@@ -141,6 +150,13 @@ console.log(MyCreatedAssignments)
       }
       </div>:
       <div>
+           {
+          DataLoading == true ?  <div className="flex justify-center items-center h-screen">
+          {
+            theme =="dark"? <HashLoader size={100} color='white'/>:<HashLoader size={100} color="#36d7b7"/>
+          }
+       
+      </div>:
           <div className="topic-cards mx-auto flex flex-wrap gap-4 p-2 w-fit my-12 justify-center items-center">
            {
         MyCreatedAssignments?.map((Assignment, index) => (
@@ -149,6 +165,7 @@ console.log(MyCreatedAssignments)
       }
       
       </div>
+}
   
      
       </div>
@@ -160,7 +177,7 @@ console.log(MyCreatedAssignments)
       </div>
   
       </div>
-      }
+      
     </div>
    
   )
